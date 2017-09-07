@@ -8,32 +8,27 @@
 <link rel="stylesheet" type="text/css" href="style.css"/>
   <div id="header">
     <div class="logo"><h1>Welcome to Paper Rock Scissors!<h1></div>
+      <div class="scorebox">Score: <p id="playerScore"></p></div>
   </div>
   <div id="gameDescription">
     <div class="instructions"><h4>The computer will show it's hand</h4></div>
     <div class="instructions"><h4>And tell you to beat that hand, lose against that hand, or tie</h4></div>
     <div class="instructions"><h4>Try for the high score!</h4></div>
     <div class="instructions"><h4>Good luck!</h4></div>
+    <div class="instructions"><button id="startButton" type="button">Start Game</button></div> 
   </div>
-  <div>
-    <table>
-	  <tr>
-        <td><img class="cpuImages" id="cpuPaper" src="https://maxcdn.icons8.com/Share/icon/ios7/Printing//sheet_of_paper1600.png"></td>
-        <td><img class="cpuImages" id="cpuRock" src="https://maxcdn.icons8.com/Android_L/PNG/512/Industry/rock-512.png"></td>
-        <td><img class="cpuImages" id="cpuScissors" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Scissors_icon_black.svg/1280px-Scissors_icon_black.svg.png"></td>
-      </tr>
-	</table>
+  <div id="cpuImgTable">
+        <div class="box"><img class="cpuImages" id="cpuPaper" src="https://maxcdn.icons8.com/Share/icon/ios7/Printing//sheet_of_paper1600.png"></div>
+        <div class="box"><img class="cpuImages" id="cpuRock" src="https://maxcdn.icons8.com/Android_L/PNG/512/Industry/rock-512.png"></div>
+        <div class="box"><img class="cpuImages" id="cpuScissors" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Scissors_icon_black.svg/1280px-Scissors_icon_black.svg.png"></div>
   </div>    
-  <div>
-    <button id="startButton" type="button">Start Game</button>
-  </div>
   <div id="playerImgTable">
-    <div id="1"><img class="playerImages" id="playerPaper" src="https://maxcdn.icons8.com/Share/icon/ios7/Printing//sheet_of_paper1600.png"></div>
-	<div id="2"><img class="playerImages" id="playerRock" src="https://maxcdn.icons8.com/Android_L/PNG/512/Industry/rock-512.png"></div> 
-    <div id="3"><img class="playerImages" id="playerScissors" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Scissors_icon_black.svg/1280px-Scissors_icon_black.svg.png"></div>
-  </div>
+    <div class="box"><img class="playerImages" id="playerPaper" src="https://maxcdn.icons8.com/Share/icon/ios7/Printing//sheet_of_paper1600.png"></div>
+	<div class="box"><img class="playerImages" id="playerRock" src="https://maxcdn.icons8.com/Android_L/PNG/512/Industry/rock-512.png"></div> 
+    <div class="box"><img class="playerImages" id="playerScissors" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Scissors_icon_black.svg/1280px-Scissors_icon_black.svg.png"></div>
+    <span class="stretch"></span>
+  </div>   
   <div id="scoreBox">
-    <div class="scorebox"><p id="playerScore"></p></div>
 	<div class="scorebox"><p id="cpuScore"></p></div>
   </div>
   <div>

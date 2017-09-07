@@ -19,7 +19,7 @@ body {
 }
 
 .playerImages {
-    float: right;
+	display: block;
 	margin-left: 20px;
 	margin-right: 20px;
 	width: 150px;
@@ -29,10 +29,11 @@ body {
 
 .cpuImages {
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 105px;
-	height: 105px;
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 150px;
+	height: 150px;
+	border: 1px solid black;
 }
 
 .user {
@@ -75,21 +76,22 @@ p {
 
 .scorebox {
     display:inline-block;
-    position: relative;
+    position: absolute;
     margin: 5px;
     float:left;
-    width: calc(15.3% - 10px);
+    width: 30px;
     height:50px;
     background-color: lightgrey;
+    z-index: 1;
 }
 
 #playerScore {
-	color: yellow;
+	color: #676FBE;
 	vertical-align: middle;
 }
 
 #cpuScore {
-	color: yellow;
+	color: #676FBE;
 }
 
 #header {
@@ -107,7 +109,7 @@ p {
 #gameDescription {
   width: 100%;
   background-color: #171717;
-  height: 80px;
+  height: 115px;
   margin: 0 auto;
 }
 
@@ -115,18 +117,34 @@ p {
   text-align: center;
 }
 
+.instructions button{
+  margin-top: 10px
+}
+
 #playerImgTable {
    display: flex;
    flex-direction: row;
    height: 180px;
 }
+
+#cpuImgTable {
+   display: flex;
+   flex-direction: row;
+   height: 180px;
+}
+
 #1, #2, #3{
   display:flex;
-  width: 100px;
-  padding-left: 20px;
+  width: 10px;
 }
 
 
 #scoreBox {
   height: 80px;
+}
+
+#startButton {
+  height: 30px;
+  width: 105px;
+  font-size: 19px;
 }
