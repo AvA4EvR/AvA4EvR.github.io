@@ -7,6 +7,9 @@ var seconds = 0;
 var countdownTimer = 0;
 var computerWinOrLoseChoice2 = 0;
 var computerSelection2 = 0;
+var playerPaperObject = document.getElementById('playerPaper');
+var playerRockObject = document.getElementById('playerRock');
+var playerScissorsObject = document.getElementById('playerScissors');
 var paperObject = document.getElementById('cpuPaper');
 var rockObject = document.getElementById('cpuRock');
 var scissorObject = document.getElementById('cpuScissors');
@@ -47,6 +50,12 @@ function game(playerSelection){
 		tie(playerSelection);
 	}
 };
+paperImage.addEventListener('mouseover', function() {
+	playerPaperObject.setAttribute('id', 'imageHover');
+});
+paperImage.addEventListener('mouseout', function() {
+	playerPaperObject.setAttribute('id', 'playerPaper');
+});
 
 //Adds a click option for the paper image. This assigns a value of 1 for the paper value, plays the game with the user value of paper, then resets defaults
 //and keeps the game going for the next round. 
