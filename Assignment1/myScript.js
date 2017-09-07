@@ -57,6 +57,20 @@ paperImage.addEventListener('mouseout', function() {
 	playerPaperObject.setAttribute('id', 'playerPaper');
 });
 
+rockImage.addEventListener('mouseover', function() {
+	playerRockObject.setAttribute('id', 'imageHover');
+});
+rockImage.addEventListener('mouseout', function() {
+	playerRockObject.setAttribute('id', 'playerRock');
+});
+
+scissorImage.addEventListener('mouseover', function() {
+	playerScissorsObject.setAttribute('id', 'imageHover');
+});
+scissorImage.addEventListener('mouseout', function() {
+	playerScissorsObject.setAttribute('id', 'playerScissors');
+});
+
 //Adds a click option for the paper image. This assigns a value of 1 for the paper value, plays the game with the user value of paper, then resets defaults
 //and keeps the game going for the next round. 
 paperImage.addEventListener('click', function() {
