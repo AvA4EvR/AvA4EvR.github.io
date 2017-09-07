@@ -1,11 +1,17 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	background-color: #676FBE;
-	color: yellow;
+	color: #676FBE;
 }
 
 #imageHover {
-	width: 150px;
-	height: 150px;
+	width: 160px;
+	height: 160px;
 	-webkit-transition: .3s;
 	-moz-transition: .3s;
 	-o-transition: .3s;
@@ -13,12 +19,12 @@ body {
 }
 
 .playerImages {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 105px;
-	height: 105px;
-	border: 1px solid yellow;
+    float: right;
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 150px;
+	height: 150px;
+	border: 1px solid black;
 }
 
 .cpuImages {
@@ -84,4 +90,43 @@ p {
 
 #cpuScore {
 	color: yellow;
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	background-color: #171717;
+	margin: 0 auto;
+}
+
+.logo {
+	text-align: center;
+    padding-top: 5px;
+}
+
+#gameDescription {
+  width: 100%;
+  background-color: #171717;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.instructions {
+  text-align: center;
+}
+
+#playerImgTable {
+   display: flex;
+   flex-direction: row;
+   height: 180px;
+}
+#1, #2, #3{
+  display:flex;
+  width: 100px;
+  padding-left: 20px;
+}
+
+
+#scoreBox {
+  height: 80px;
 }
