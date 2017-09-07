@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic Tac Toe Game!</title>
+</head>
+
+<body>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+  <div>
+    <h1>Welcome to Tic Tac Toe!<h1>
+  </div>
+  <div>
+    <h3>Please pick between Paper, Rock, or Scissors!</h3>
+  </div>
+  <div>
+    <button id="startButton" type="button">Start Game</button>
+  </div>
+  <div>
+    <table>
+	  <tr>
+        <td><img class="playerImages" id="playerPaper" src="https://maxcdn.icons8.com/Share/icon/ios7/Printing//sheet_of_paper1600.png"></td>
+        <td><img class="playerImages" id="playerRock" src="https://maxcdn.icons8.com/Android_L/PNG/512/Industry/rock-512.png"></td>
+        <td><img class="playerImages" id="playerScissors" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Scissors_icon_black.svg/1280px-Scissors_icon_black.svg.png"></td>
+      </tr>
+	</table>
+  </div>
+  <div>
+    <table>
+	  <tr>
+        <td><img class="cpuImages" id="cpuPaper" src="https://maxcdn.icons8.com/Share/icon/ios7/Printing//sheet_of_paper1600.png"></td>
+        <td><img class="cpuImages" id="cpuRock" src="https://maxcdn.icons8.com/Android_L/PNG/512/Industry/rock-512.png"></td>
+        <td><img class="cpuImages" id="cpuScissors" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Scissors_icon_black.svg/1280px-Scissors_icon_black.svg.png"></td>
+      </tr>
+	</table>
+  </div>
+  <div>
+    <div class="scorebox"><p id="playerScore"></p></div>
+	<div class="scorebox"><p id="cpuScore"></p></div>
+  </div>
+  <div>
+  <p id="p"></p>
+  </div>
+  <p id="time"></p>
+ <script src="myScript.js"></script>
+  
+</body>
+</html>

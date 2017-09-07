@@ -1,0 +1,78 @@
+body {
+	background-color: #676FBE;
+	color: yellow;
+}
+
+.playerImages {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 105px;
+	height: 105px;
+	border: 1px solid yellow;
+}
+
+.cpuImages {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 105px;
+	height: 105px;
+}
+
+.user {
+	display: inline-block;
+}
+
+#cpuPaper {
+	visibility: hidden;
+}
+
+#cpuRock {
+	visibility: hidden;
+}
+
+#cpuScissors {
+	visibility: hidden;
+}
+
+.selectedPlayerImages {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 105px;
+	height: 105px;
+	background-color: yellow;
+}
+
+p {
+	font-size: 55px;
+}
+
+#time {
+	color: yellow;
+}
+
+#show {
+	visibility: visible;
+	background-color: yellow;
+}
+
+.scorebox {
+    display:inline-block;
+    position: relative;
+    margin: 5px;
+    float:left;
+    width: calc(15.3% - 10px);
+    height:50px;
+    background-color: lightgrey;
+}
+
+#playerScore {
+	color: yellow;
+	vertical-align: middle;
+}
+
+#cpuScore {
+	color: yellow;
+}
