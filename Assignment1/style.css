@@ -74,15 +74,18 @@ p {
 	background-color: yellow;
 }
 
-.scorebox {
+.playerScoreBox {
     display:inline-block;
     position: absolute;
     margin: 5px;
     float:left;
-    width: 30px;
+    width: 50px;
     height:50px;
-    background-color: lightgrey;
-    z-index: 1;
+}
+
+.cpuScoreBox {
+   position: absolute;
+   right: 2px;
 }
 
 #playerScore {
@@ -147,4 +150,8 @@ p {
   height: 30px;
   width: 105px;
   font-size: 19px;
+}
+
+#notifications {
+  height: 55px;
 }
