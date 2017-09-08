@@ -63,15 +63,15 @@ body {
 
 p {
 	font-size: 55px;
+	color: black;
 }
 
 #time {
-	color: yellow;
+	color: black;
 }
 
 #show {
 	visibility: visible;
-	background-color: yellow;
 }
 
 .playerScoreBox {
@@ -153,5 +153,5 @@ p {
 }
 
 #notifications {
-  height: 55px;
+  height: 100px;
 }

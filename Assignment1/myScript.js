@@ -151,7 +151,12 @@ function tie(playerSelection){
 	}
 	else{
 		document.getElementById("p").textContent = 'You didn\'t tie the computer. Minus 2 points';
-		playerWinCount -=2;
+		if (playerWinCount - 2 < 0){
+			playerWinCount = 0;
+		}
+		else {
+			playerWinCount -=2;
+		}
 		playerWins();
 	}
 }
@@ -172,7 +177,12 @@ function win(playerSelection){
 	}
 	else {
 		document.getElementById("p").textContent = 'You didn\'t beat the computer. Minus 2 points';
-		playerWinCount -=2;
+		if (playerWinCount - 2 < 0){
+			playerWinCount = 0;
+		}
+		else {
+			playerWinCount -=2;
+		}
 		playerWins();
 	}
 }
@@ -193,7 +203,12 @@ function lose(playerSelection) {
 	}
 	else {
 		document.getElementById("p").textContent = 'You didn\'t beat the computer. Minus 2 points';
-		playerWinCount -=2;
+		if (playerWinCount - 2 < 0){
+			playerWinCount = 0;
+		}
+		else {
+			playerWinCount -=2;
+		}
 		playerWins();
 	}
 }
