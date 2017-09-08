@@ -16,6 +16,7 @@ body {
 	-moz-transition: .3s;
 	-o-transition: .3s;
 	transition: .3s;
+	background-color: #844FC7;
 }
 
 .playerImages {
@@ -133,7 +134,7 @@ p {
 #cpuImgTable {
    display: flex;
    flex-direction: row;
-   height: 180px;
+   height: 200px;
 }
 
 #1, #2, #3{
