@@ -50,22 +50,39 @@ function game(playerSelection){
 		tie(playerSelection);
 	}
 };
+
+
 paperImage.addEventListener('mouseover', function() {
-	playerPaperObject.setAttribute('id', 'imageHover');
+	if (clickable === 1){
+		paperImage.removeEventListener('mouseover', function(){})
+	}
+	else {
+		playerPaperObject.setAttribute('id', 'imageHover');	
+	}
 });
 paperImage.addEventListener('mouseout', function() {
 	playerPaperObject.setAttribute('id', 'playerPaper');
 });
 
 rockImage.addEventListener('mouseover', function() {
-	playerRockObject.setAttribute('id', 'imageHover');
+	if (clickable === 1){
+		rockImage.removeEventListener('mouseover', function(){})
+	}
+	else {
+		playerRockObject.setAttribute('id', 'imageHover');	
+	}
 });
 rockImage.addEventListener('mouseout', function() {
 	playerRockObject.setAttribute('id', 'playerRock');
 });
 
 scissorImage.addEventListener('mouseover', function() {
-	playerScissorsObject.setAttribute('id', 'imageHover');
+	if (clickable === 1){
+		scissorImage.removeEventListener('mouseover', function(){})
+	}
+	else {
+		playerScissorsObject.setAttribute('id', 'imageHover');	
+	}
 });
 scissorImage.addEventListener('mouseout', function() {
 	playerScissorsObject.setAttribute('id', 'playerScissors');
@@ -143,11 +160,12 @@ function showComMove(computerSelection) {
 //This is called if the point of the round is to try and tie the computer. 
 function tie(playerSelection){
 	document.getElementById("p").textContent = '';
-	document.getElementById("p").textContent = "Go for a tie!";
+	document.getElementById("p").textContent = "Tie!";
 	if (playerSelection == computerSelection2){
 		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
 		playerWinCount++;
 		playerWins();
+		setHighScore();
 	}
 	else{
 		document.getElementById("p").textContent = 'You didn\'t tie the computer. Minus 2 points';
@@ -164,16 +182,18 @@ function tie(playerSelection){
 //This is called if the point of the round is to try and win against the computer. 
 function win(playerSelection){
 	document.getElementById("p").textContent = '';
-	document.getElementById("p").textContent = 'Go for a win!';
+	document.getElementById("p").textContent = 'Win!';
 	if (playerSelection < computerSelection2 && playerSelection !== 3){
 		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
 		playerWinCount++;
 		playerWins();
+		setHighScore();
 	}
 	else if (playerSelection === 3 && computerSelection2 === 1){
 		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
 		playerWinCount++;
 		playerWins();
+		setHighScore();
 	}
 	else {
 		document.getElementById("p").textContent = 'You didn\'t beat the computer. Minus 2 points';
@@ -190,16 +210,18 @@ function win(playerSelection){
 //This is called if the point of the round is to try and lose against the computer. 
 function lose(playerSelection) {
 	document.getElementById("p").textContent = '';
-	document.getElementById("p").textContent = 'Go for a loss!';
+	document.getElementById("p").textContent = 'Lose!';
 	if (playerSelection > computerSelection2 && playerSelection !== 1){
 		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
 		playerWinCount++;
 		playerWins();
+		setHighScore();
 	}
 	else if (playerSelection === 1 && computerSelection2 === 3){
 		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
 		playerWinCount++;
 		playerWins();
+		setHighScore();
 	}
 	else {
 		document.getElementById("p").textContent = 'You didn\'t beat the computer. Minus 2 points';
@@ -238,15 +260,15 @@ function resetDefaults(){
 function setUpRound(computerWinOrLoseChoice){
 	if (computerWinOrLoseChoice === 1){
       document.getElementById("p").textContent = '';
-	  document.getElementById("p").textContent = 'Go for a win!';
+	  document.getElementById("p").textContent = 'Win!';
 	}
 	else if (computerWinOrLoseChoice === 2){
       document.getElementById("p").textContent = '';
-	  document.getElementById("p").textContent = 'Go for a loss!';
+	  document.getElementById("p").textContent = 'Lose!';
 	}
 	else {
 	  document.getElementById("p").textContent = '';
-	  document.getElementById("p").textContent = "Go for a tie!";
+	  document.getElementById("p").textContent = "Tie!";
 	}
 }
 
@@ -266,5 +288,9 @@ function playerWins() {
 }
 
 function setHighScore (){
-
+	if (playerWinCount > highScore){
+		highScore = playerWinCount;
+		document.getElementById('cpuScore').textContent = '';
+		document.getElementById('cpuScore').textContent += highScore;
+	}
 }

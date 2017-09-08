@@ -26,6 +26,10 @@ body {
 	width: 150px;
 	height: 150px;
 	border: 1px solid black;
+	-webkit-transition: .3s;
+	-moz-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
 }
 
 .cpuImages {
@@ -83,11 +87,16 @@ p {
     float:left;
     width: 50px;
     height:50px;
+	font-size: 18px;
 }
 
 .cpuScoreBox {
    position: absolute;
-   right: 20px;
+   right: 80px;
+   top: 8px;
+   width: 50px;
+   height: 50px;
+   font-size: 18px;
 }
 
 #playerScore {
@@ -97,6 +106,7 @@ p {
 
 #cpuScore {
 	color: #676FBE;
+	vertical-align: middle;
 }
 
 #header {
