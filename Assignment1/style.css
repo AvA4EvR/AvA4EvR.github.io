@@ -77,7 +77,7 @@ p {
 .playerScoreBox {
     display:inline-block;
     position: absolute;
-    margin: 5px;
+	left: 20px;
     float:left;
     width: 50px;
     height:50px;
@@ -85,7 +85,7 @@ p {
 
 .cpuScoreBox {
    position: absolute;
-   right: 2px;
+   right: 20px;
 }
 
 #playerScore {
@@ -139,6 +139,21 @@ p {
 #1, #2, #3{
   display:flex;
   width: 10px;
+}
+
+#paperBox {
+   position: absolute;
+   left: 550px;
+}
+
+#rockBox {
+   position: absolute;
+   left: 865px;
+}
+
+#scissorBox {
+   position: absolute;
+   right: 570px;	
 }
 
 
