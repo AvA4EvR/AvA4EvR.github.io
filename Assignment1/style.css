@@ -41,10 +41,6 @@ body {
 	border: 1px solid black;
 }
 
-.user {
-	display: inline-block;
-}
-
 #cpuPaper {
 	visibility: hidden;
 }
@@ -55,15 +51,6 @@ body {
 
 #cpuScissors {
 	visibility: hidden;
-}
-
-.selectedPlayerImages {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 105px;
-	height: 105px;
-	background-color: yellow;
 }
 
 p {
@@ -146,11 +133,6 @@ p {
    display: flex;
    flex-direction: row;
    height: 250px;
-}
-
-#1, #2, #3{
-  display:flex;
-  width: 10px;
 }
 
 #paperBox {
