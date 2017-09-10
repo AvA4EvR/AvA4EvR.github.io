@@ -170,3 +170,25 @@ p {
 	position: absolute;
 	margin-left: 41.5%;
 }
+
+#score-alert {
+	font-size: 30px;
+	margin-left: 20%;
+}
+
+#lose-alert {
+	font-size: 30px;
+	margin-right: 10%;
+}
+
+#scoreDiv {
+	z-index: 1;
+	margin-left: -10%;
+	position: absolute;
+}
+
+#loseDiv {
+	z-index: 1;
+	margin-left: 80%;
+	position: absolute;
+}

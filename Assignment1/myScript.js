@@ -35,6 +35,8 @@ startGameBtn.addEventListener('click', function() {
 	countdownTimer = setInterval('secondPassed()', 1000);
 	setUpRound(computerWinOrLoseChoice);
     document.getElementById("startButton").disabled = 'disabled';
+	document.getElementById("score-alert").textContent = "";
+	document.getElementById("lose-alert").textContent = "";
 });
 
 
@@ -162,13 +164,15 @@ function tie(playerSelection){
 	document.getElementById("p").textContent = '';
 	document.getElementById("p").textContent = "Tie!";
 	if (playerSelection == computerSelection2){
-		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("lose-alert").textContent = "";
 		playerWinCount++;
 		playerWins();
 		setHighScore();
 	}
 	else{
-		document.getElementById("p").textContent = 'You didn\'t tie the computer. Minus 2 points';
+		document.getElementById("lose-alert").textContent = 'You didn\'t tie the computer. Minus 2 points';
+		document.getElementById("score-alert").textContent = "";
 		if (playerWinCount - 2 < 0){
 			playerWinCount = 0;
 		}
@@ -184,19 +188,22 @@ function win(playerSelection){
 	document.getElementById("p").textContent = '';
 	document.getElementById("p").textContent = 'Win!';
 	if (playerSelection < computerSelection2 && playerSelection !== 3){
-		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("lose-alert").textContent = "";
 		playerWinCount++;
 		playerWins();
 		setHighScore();
 	}
 	else if (playerSelection === 3 && computerSelection2 === 1){
-		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("lose-alert").textContent = "";
 		playerWinCount++;
 		playerWins();
 		setHighScore();
 	}
 	else {
-		document.getElementById("p").textContent = 'You didn\'t beat the computer. Minus 2 points';
+		document.getElementById("lose-alert").textContent = 'You didn\'t beat the computer. Minus 2 points';
+		document.getElementById("score-alert").textContent = "";
 		if (playerWinCount - 2 < 0){
 			playerWinCount = 0;
 		}
@@ -212,19 +219,22 @@ function lose(playerSelection) {
 	document.getElementById("p").textContent = '';
 	document.getElementById("p").textContent = 'Lose!';
 	if (playerSelection > computerSelection2 && playerSelection !== 1){
-		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("lose-alert").textContent = "";
 		playerWinCount++;
 		playerWins();
 		setHighScore();
 	}
 	else if (playerSelection === 1 && computerSelection2 === 3){
-		document.getElementById("p").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
+		document.getElementById("lose-alert").textContent = "";
 		playerWinCount++;
 		playerWins();
 		setHighScore();
 	}
 	else {
-		document.getElementById("p").textContent = 'You didn\'t beat the computer. Minus 2 points';
+		document.getElementById("lose-alert").textContent = 'You didn\'t beat the computer. Minus 2 points';
+		document.getElementById("score-alert").textContent = "";
 		if (playerWinCount - 2 < 0){
 			playerWinCount = 0;
 		}
