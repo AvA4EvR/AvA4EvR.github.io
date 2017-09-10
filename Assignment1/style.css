@@ -127,29 +127,28 @@ p {
    display: flex;
    flex-direction: row;
    height: 180px;
+}
+
+#cpuImgTable {
+   width: 100%;
+   height: 250px;
    margin-left: auto;
    margin-right: auto;
 }
 
-#cpuImgTable {
-   display: flex;
-   flex-direction: row;
-   height: 250px;
-}
-
 #paperBox {
    position: absolute;
-   left: 550px;
+   margin-left: 29%;
 }
 
 #rockBox {
    position: absolute;
-   left: 865px;
+   margin-left: 43%;
 }
 
 #scissorBox {
    position: absolute;
-   right: 570px;	
+   margin-left: 57%;	
 }
 
 
@@ -170,4 +169,5 @@ p {
 .cpuImageBox {
 	padding-top: 5px;
 	position: absolute;
+	margin-left: 41.5%;
 }
