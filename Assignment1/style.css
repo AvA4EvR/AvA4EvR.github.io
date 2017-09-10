@@ -127,6 +127,8 @@ p {
    display: flex;
    flex-direction: row;
    height: 180px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 #cpuImgTable {
@@ -168,5 +170,4 @@ p {
 .cpuImageBox {
 	padding-top: 5px;
 	position: absolute;
-	left: 840px;
 }
