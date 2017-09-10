@@ -1,18 +1,19 @@
-var playerWinCount = 0;
+//Global variables used throughout the game for assignments
+var playerCurrentScore = 0;
 var paperImage = document.getElementById('playerPaper');
 var rockImage = document.getElementById('playerRock');
 var scissorImage = document.getElementById('playerScissors');
 var startGameBtn = document.getElementById('startButton');
 var seconds = 0;
 var countdownTimer = 0;
-var computerWinOrLoseChoice2 = 0;
-var computerSelection2 = 0;
+var computerWinOrLoseChoiceGlobal = 0;
+var computerSelectionGlobal = 0;
 var playerPaperObject = document.getElementById('playerPaper');
 var playerRockObject = document.getElementById('playerRock');
 var playerScissorsObject = document.getElementById('playerScissors');
-var paperObject = document.getElementById('cpuPaper');
-var rockObject = document.getElementById('cpuRock');
-var scissorObject = document.getElementById('cpuScissors');
+var cpuPaperObject = document.getElementById('cpuPaper');
+var cpuRockObject = document.getElementById('cpuRock');
+var cpuScissorObject = document.getElementById('cpuScissors');
 var clickable = 1;
 var highScore = 0;
 
@@ -24,13 +25,13 @@ startGameBtn.addEventListener('click', function() {
 	document.getElementById("p").textContent = '';
 	resetDefaults();
 	clickable = 0;
-	playerWinCount = 0;
+	playerCurrentScore = 0;
 	var computerSelection = randomComputerNumber();
 	var computerWinOrLoseChoice = randomComputerAnswer();
 	document.getElementById('playerScore').textContent = '';
-	document.getElementById("playerScore").textContent += playerWinCount;
-	computerWinOrLoseChoice2 = computerWinOrLoseChoice;
-	computerSelection2 = computerSelection;
+	document.getElementById("playerScore").textContent += playerCurrentScore;
+	computerWinOrLoseChoiceGlobal = computerWinOrLoseChoice;
+	computerSelectionGlobal = computerSelection;
 	showComMove(computerSelection);
 	countdownTimer = setInterval('secondPassed()', 1000);
 	setUpRound(computerWinOrLoseChoice);
@@ -42,10 +43,10 @@ startGameBtn.addEventListener('click', function() {
 
 //This will run to play the game. 
 function game(playerSelection){
-	if (computerWinOrLoseChoice2 === 1){
+	if (computerWinOrLoseChoiceGlobal === 1){
 		win(playerSelection);
 	}
-	else if (computerWinOrLoseChoice2 === 2){
+	else if (computerWinOrLoseChoiceGlobal === 2){
 		lose(playerSelection);
 	}
 	else {
@@ -53,7 +54,7 @@ function game(playerSelection){
 	}
 };
 
-
+// Adds mouse over events when the game is playing to highlight and expand the player choice images (one for each)
 paperImage.addEventListener('mouseover', function() {
 	if (clickable === 1){
 		paperImage.removeEventListener('mouseover', function(){})
@@ -101,8 +102,8 @@ paperImage.addEventListener('click', function() {
 	    resetDefaults();
 	    var computerSelection = randomComputerNumber();
 	    var computerWinOrLoseChoice = randomComputerAnswer();
-	    computerWinOrLoseChoice2 = computerWinOrLoseChoice;
-	    computerSelection2 = computerSelection;
+	    computerWinOrLoseChoiceGlobal = computerWinOrLoseChoice;
+	    computerSelectionGlobal = computerSelection;
 	    showComMove(computerSelection);
 	    setUpRound(computerWinOrLoseChoice);
 	}
@@ -119,8 +120,8 @@ rockImage.addEventListener('click', function() {
 		resetDefaults();
 		var computerSelection = randomComputerNumber();
 		var computerWinOrLoseChoice = randomComputerAnswer();
-		computerWinOrLoseChoice2 = computerWinOrLoseChoice;
-		computerSelection2 = computerSelection;
+		computerWinOrLoseChoiceGlobal = computerWinOrLoseChoice;
+		computerSelectionGlobal = computerSelection;
 		showComMove(computerSelection);
 		setUpRound(computerWinOrLoseChoice);
 	}
@@ -137,8 +138,8 @@ scissorImage.addEventListener('click', function() {
 		resetDefaults();
 		var computerSelection = randomComputerNumber();
 		var computerWinOrLoseChoice = randomComputerAnswer();
-		computerWinOrLoseChoice2 = computerWinOrLoseChoice;
-		computerSelection2 = computerSelection;
+		computerWinOrLoseChoiceGlobal = computerWinOrLoseChoice;
+		computerSelectionGlobal = computerSelection;
 		showComMove(computerSelection);
 		setUpRound(computerWinOrLoseChoice);
 	}
@@ -149,13 +150,13 @@ function showComMove(computerSelection) {
 	var textBox = document.getElementById("p")
     textBox.textContent = '';
 	if(computerSelection === 1){
-		paperObject.setAttribute('id', 'show');
+		cpuPaperObject.setAttribute('id', 'show');
 	}
 	else if (computerSelection === 2) {
-		rockObject.setAttribute('id', 'show');
+		cpuRockObject.setAttribute('id', 'show');
 	}
 	else {
-		scissorObject.setAttribute('id', 'show');
+		cpuScissorObject.setAttribute('id', 'show');
 	}
 }
 
@@ -163,21 +164,21 @@ function showComMove(computerSelection) {
 function tie(playerSelection){
 	document.getElementById("p").textContent = '';
 	document.getElementById("p").textContent = "Tie!";
-	if (playerSelection == computerSelection2){
+	if (playerSelection == computerSelectionGlobal){
 		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
 		document.getElementById("lose-alert").textContent = "";
-		playerWinCount++;
+		playerCurrentScore++;
 		playerWins();
 		setHighScore();
 	}
 	else{
 		document.getElementById("lose-alert").textContent = 'You didn\'t tie the computer. Minus 2 points';
 		document.getElementById("score-alert").textContent = "";
-		if (playerWinCount - 2 < 0){
-			playerWinCount = 0;
+		if (playerCurrentScore - 2 < 0){
+			playerCurrentScore = 0;
 		}
 		else {
-			playerWinCount -=2;
+			playerCurrentScore -=2;
 		}
 		playerWins();
 	}
@@ -187,28 +188,28 @@ function tie(playerSelection){
 function win(playerSelection){
 	document.getElementById("p").textContent = '';
 	document.getElementById("p").textContent = 'Win!';
-	if (playerSelection < computerSelection2 && playerSelection !== 3){
+	if (playerSelection < computerSelectionGlobal && playerSelection !== 3){
 		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
 		document.getElementById("lose-alert").textContent = "";
-		playerWinCount++;
+		playerCurrentScore++;
 		playerWins();
 		setHighScore();
 	}
-	else if (playerSelection === 3 && computerSelection2 === 1){
+	else if (playerSelection === 3 && computerSelectionGlobal === 1){
 		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
 		document.getElementById("lose-alert").textContent = "";
-		playerWinCount++;
+		playerCurrentScore++;
 		playerWins();
 		setHighScore();
 	}
 	else {
 		document.getElementById("lose-alert").textContent = 'You didn\'t beat the computer. Minus 2 points';
 		document.getElementById("score-alert").textContent = "";
-		if (playerWinCount - 2 < 0){
-			playerWinCount = 0;
+		if (playerCurrentScore - 2 < 0){
+			playerCurrentScore = 0;
 		}
 		else {
-			playerWinCount -=2;
+			playerCurrentScore -=2;
 		}
 		playerWins();
 	}
@@ -218,28 +219,28 @@ function win(playerSelection){
 function lose(playerSelection) {
 	document.getElementById("p").textContent = '';
 	document.getElementById("p").textContent = 'Lose!';
-	if (playerSelection > computerSelection2 && playerSelection !== 1){
+	if (playerSelection > computerSelectionGlobal && playerSelection !== 1){
 		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
 		document.getElementById("lose-alert").textContent = "";
-		playerWinCount++;
+		playerCurrentScore++;
 		playerWins();
 		setHighScore();
 	}
-	else if (playerSelection === 1 && computerSelection2 === 3){
+	else if (playerSelection === 1 && computerSelectionGlobal === 3){
 		document.getElementById("score-alert").textContent = 'Good job! You beat the computer! 1 point awarded';
 		document.getElementById("lose-alert").textContent = "";
-		playerWinCount++;
+		playerCurrentScore++;
 		playerWins();
 		setHighScore();
 	}
 	else {
 		document.getElementById("lose-alert").textContent = 'You didn\'t beat the computer. Minus 2 points';
 		document.getElementById("score-alert").textContent = "";
-		if (playerWinCount - 2 < 0){
-			playerWinCount = 0;
+		if (playerCurrentScore - 2 < 0){
+			playerCurrentScore = 0;
 		}
 		else {
-			playerWinCount -=2;
+			playerCurrentScore -=2;
 		}
 		playerWins();
 	}
@@ -261,9 +262,9 @@ function secondPassed() {
 
 //Resets attributes of the three objects (paper, rock, and scissors) for the id tag
 function resetDefaults(){
-	paperObject.setAttribute('id', 'cpuPaper');
-	rockObject.setAttribute('id', 'cpuRock');
-	scissorObject.setAttribute('id', 'cpuScissors');
+	cpuPaperObject.setAttribute('id', 'cpuPaper');
+	cpuRockObject.setAttribute('id', 'cpuRock');
+	cpuScissorObject.setAttribute('id', 'cpuScissors');
 }
 
 //Sets up information on the round, showing the user if they are supposed to try and win, lose, or tie the computer
@@ -292,14 +293,16 @@ function randomComputerAnswer () {
 	return Math.floor((Math.random() * 3) + 1);
 }
 
+//Function that displays the player score count
 function playerWins() {
 	document.getElementById('playerScore').textContent = '';
-	document.getElementById("playerScore").textContent += playerWinCount;
+	document.getElementById("playerScore").textContent += playerCurrentScore;
 }
 
+//Function that sets the high score of the game.
 function setHighScore (){
-	if (playerWinCount > highScore){
-		highScore = playerWinCount;
+	if (playerCurrentScore > highScore){
+		highScore = playerCurrentScore;
 		document.getElementById('cpuScore').textContent = '';
 		document.getElementById('cpuScore').textContent += highScore;
 	}
