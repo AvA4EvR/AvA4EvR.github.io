@@ -20,7 +20,7 @@
     <div class="small-6 columns">
       <h1 class="text-center">COMPUTER</h1>
       <div class="wins">
-        <div class="wins text-center" style="background-color: green; margin: 0; color: white;" :style="[increasePlayerBar,{width:playerScore + '%'}]">
+        <div class="wins text-center" style="background-color: green; margin: 0; color: white;" :style="[increaseComputerBar,{width:computerScore + '%'}]">
          
         </div>
       </div>
@@ -33,17 +33,17 @@
   </section>
   <section class="row controls">
     <div class="small-12 columns">
-      <button id="rock"  v-show="!buttonClick">ROCK</button>
-      <button id="paper" v-show="!buttonClick">PAPER</button>
-      <button id="scissors" v-show="!buttonClick">SCISSORS</button>
-      <button id="restart" v-show="!buttonClick">RESTART</button>
+      <button id="rock"  v-show="!buttonClick" @click="computerSelection()">ROCK</button>
+      <button id="paper" v-show="!buttonClick" @click="">PAPER</button>
+      <button id="scissors" v-show="!buttonClick" @click="">SCISSORS</button>
+      <button id="restart" v-show="!buttonClick" @click="reset()">RESTART</button>
     </div>
   </section>
   <section class="row log">
     <div class="small-12 columns">
       <ul>
-        <li>
-          
+        <li v-for="message in messages">
+          {{message.message}} |
         </li>
       </ul>
     </div>
