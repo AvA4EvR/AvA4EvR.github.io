@@ -37,11 +37,11 @@ new Vue({
   
   methods: {
       increasePlayerScore: function(){
-        this.playerScore++
+        this.playerScore+= 10
       },
 
 	  increaseComputerScore: function() {
-		this.computerScore++
+		this.computerScore+= 10
 	  },
 
       reset: function() {
@@ -94,29 +94,29 @@ new Vue({
 
             }
             else if(this.computerPaper === true){
-
+                this.increaseComputerScore()
             }
             else {
-
+                this.increasePlayerScore()
             }
         }
         else if (this.playerPaper === true){
             if(this.computerRock === true){
-
+                this.increasePlayerScore()
             }
             else if (this.computerPaper === true){
 
             }
             else {
-
+                this.increaseComputerScore()
             }
         }
         else {
             if (this.computerRock === true){
-
+                this.increaseComputerScore()
             }
             else if (this.computerPaper === true){
-
+                this.increasePlayerScore()
             }
             else {
 
