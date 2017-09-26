@@ -4,7 +4,8 @@ new Vue({
       paper: true,
 	  rock: true,
 	  scissors: true,
-	  playerScore: 1,
+	  playerScore: 0,
+	  computerScore: 0,
 
   },
   
@@ -17,9 +18,13 @@ new Vue({
   },
   
   methods: {
-      startGame: function(){
-        this.rock = false
+      increasePlayerScore: function(){
+        this.playerScore++
       }
+	  
+	  increaseComputerScore: function() {
+		this.computerScore++
+	  }
   },
   
 });
