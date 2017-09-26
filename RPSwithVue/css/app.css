@@ -99,3 +99,7 @@ button {
 #restart:hover {
     background-color: #c7c7c7;
 }
+
+.visible {
+    visibility: hidden;
+}
