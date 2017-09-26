@@ -33,9 +33,9 @@
   </section>
   <section class="row controls">
     <div class="small-12 columns">
-      <button id="rock"  v-show="!buttonClick" @click="computerSelection()">ROCK</button>
-      <button id="paper" v-show="!buttonClick" @click="">PAPER</button>
-      <button id="scissors" v-show="!buttonClick" @click="">SCISSORS</button>
+      <button id="rock"  v-show="!buttonClick" @click="playerSelection(1), computerSelection(), checkTurn()">ROCK</button>
+      <button id="paper" v-show="!buttonClick" @click="playerSelection(2), computerSelection(), checkTurn()">PAPER</button>
+      <button id="scissors" v-show="!buttonClick" @click="playerSelection(3), computerSelection(), checkTurn()">SCISSORS</button>
       <button id="restart" v-show="!buttonClick" @click="reset()">RESTART</button>
     </div>
   </section>
