@@ -1,20 +1,25 @@
 new Vue({
   el: '#app',
   data: {
-	  paper: true,
+      paper: true,
 	  rock: true,
 	  scissors: true,
-	  
+	  playerScore: 1,
 
   },
+  
+  computed: {
+    increaseBar: function() {
+      return {
+        width: this.playerScore + '%'
+      }
+    }
+  },
+  
   methods: {
-	  startGame: function () {
-		  
-		  this.paper = false,
-		  this.rock = false,
-		  this.scissors = false,
-	  }
-	  
-
-  }
+      startGame: function(){
+        this.rock = false
+      }
+  },
+  
 });
