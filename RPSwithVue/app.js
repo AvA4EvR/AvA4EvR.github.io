@@ -7,11 +7,15 @@ new Vue({
       computerRock: false,
       computerPaper: false,
       computerScissors: false,
+      select: 0,
+      selection: 0,
 	  playerScore: 0,
 	  computerScore: 0,
       buttonsVisible: true,
       buttonsStart: true,
       buttonClick: true,
+      playerWinCount: 0,
+      computerWinCount: 0,
       messages: [
           { message: 'Computer chose'},
           { message: 'Beats'},
@@ -38,10 +42,12 @@ new Vue({
   methods: {
       increasePlayerScore: function(){
         this.playerScore+= 10
+            this.playerWinCount++
       },
 
 	  increaseComputerScore: function() {
 		this.computerScore+= 10
+          this.computerWinCount++
 	  },
 
       reset: function() {
@@ -50,6 +56,8 @@ new Vue({
           this.computerScissors = false
           this.playerScore = 0
           this.computerScore = 0
+          this.playerWinCount = 0
+          this.computerWinCount = 0
       },
 
 	  computerSelection: function(){
@@ -64,10 +72,11 @@ new Vue({
               this.computerScissors = false
               this.computerPaper = true
           }
-          else
+          else{
               this.computerRock = false
               this.computerPaper = false
               this.computerScissors = true
+          }
       },
 
       playerSelection: function(select) {
@@ -122,6 +131,16 @@ new Vue({
 
             }
         }
+      },
+
+      alertBox: function(){
+        if(this.playerWinCount === 10){
+            alert("You won! Play again?")
+        }
+        else if (this.computerWinCount === 10){
+            alert("You lose. Play again?")
+        }
+
       },
 
   },
