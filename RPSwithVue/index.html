@@ -26,17 +26,17 @@
       </div>
     </div>
   </section>
-  <section class="row controls">
+  <section class="row controls" v-if="startButtonClick">
     <div class="small-12 columns">
-      <button id="start-game" v-show="buttonClick" @click="buttonClick = !buttonClick">START NEW GAME</button>
+      <button id="start-game" v-show="startButtonClick" @click="startButtonClick = !startButtonClick">START NEW GAME</button>
     </div>
   </section>
-  <section class="row controls">
+  <section class="row controls" v-else>
     <div class="small-12 columns">
-      <button id="rock"  v-show="!buttonClick" @click="playerSelection(1), computerSelection(), checkTurn(), alertBox()">ROCK</button>
-      <button id="paper" v-show="!buttonClick" @click="playerSelection(2), computerSelection(), checkTurn(), alertBox()">PAPER</button>
-      <button id="scissors" v-show="!buttonClick" @click="playerSelection(3), computerSelection(), checkTurn(), alertBox()">SCISSORS</button>
-      <button id="restart" v-show="!buttonClick" @click="reset()">RESTART</button>
+      <button id="rock"  v-show="!startButtonClick" @click="playerSelection(1), computerSelection(), checkTurn(), alertBox()">ROCK</button>
+      <button id="paper" v-show="!startButtonClick" @click="playerSelection(2), computerSelection(), checkTurn(), alertBox()">PAPER</button>
+      <button id="scissors" v-show="!startButtonClick" @click="playerSelection(3), computerSelection(), checkTurn(), alertBox()">SCISSORS</button>
+      <button id="restart" v-show="!startButtonClick" @click="reset()">RESTART</button>
     </div>
   </section>
   <section class="row log">
