@@ -75,6 +75,7 @@ new Vue({
           this.computerScore = 0
           this.playerWinCount = 0
           this.computerWinCount = 0
+          this.startButtonClick = true
           this.messages = []
       },
 
