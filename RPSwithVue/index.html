@@ -42,8 +42,9 @@
   <section class="row log">
     <div class="small-12 columns">
       <ul>
-        <li v-for="message in messages">
-          {{message.message}} |
+        <li v-for="message in messages"
+          :class="{'player-turn': playerWin, 'computer-turn': computerWin, 'tie-turn': noWin}">
+          {{message.text}}
         </li>
       </ul>
     </div>
