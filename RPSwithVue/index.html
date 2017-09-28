@@ -43,7 +43,7 @@
     <div class="small-12 columns">
       <ul>
         <li v-for="message in messages"
-          :class="{'player-turn': playerWin, 'computer-turn': computerWin, 'tie-turn': noWin}">
+          :class="{'player-turn': message.playerWon, 'computer-turn': message.computerWon, 'tie-turn': message.tieGame}">
           {{message.text}}
         </li>
       </ul>

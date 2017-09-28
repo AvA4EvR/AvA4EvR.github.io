@@ -17,9 +17,6 @@ new Vue({
       playerWinCount: 0,
       computerWinCount: 0,
       messages: [],
-      playerWin: false,
-      computerWin: false,
-      noWin: false
 
   },
   
@@ -99,30 +96,24 @@ new Vue({
       checkTurn: function(){
 	    if(this.playerRock === true){
             if(this.computerRock === true){
-                this.noWin = true
                 this.messages.unshift({
+                    tieGame: true,
                     text: "Computer chose Rock| You have tied!"
                 })
-                this.playerWin = false
-                this.computerWin = false
             }
             else if(this.computerPaper === true){
                 this.increaseComputerScore()
-                this.computerWin = true
                 this.messages.unshift({
+                    computerWon: true,
                     text: "Computer chose Paper| Paper beats rock | Computer wins!"
                 })
-                this.noWin = false
-                this.playerWin = false
             }
             else {
                 this.increasePlayerScore()
-                this.playerWin = true
                 this.messages.unshift({
+                    playerWon: true,
                     text: "Computer chose Scissors | Rock Beats scissors | Player Wins!"
                 })
-                this.computerWin = false
-                this.noWin = false
             }
         }
         else if (this.playerPaper === true){
