@@ -37,12 +37,12 @@
     margin: 5px;
 }
 
-.log ul .player-turn {
+.log ul .player-win {
     color: green;
     background-color: #aaffb0;
 }
 
-.log ul .computer-turn {
+.log ul .player-lose {
     color: red;
     background-color: #ffc0c1;
 }
@@ -98,4 +98,13 @@ button {
 
 #restart:hover {
     background-color: #c7c7c7;
+}
+
+#wrapper {
+    text-align: center;
+}
+
+#innerDiv {
+    display: inline-block;
+    font-size: 30px;
 }

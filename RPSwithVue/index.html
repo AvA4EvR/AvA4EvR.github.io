@@ -21,10 +21,11 @@
       <h1 class="text-center">HIGH SCORE</h1>
       <div class="wins">
         <div class="wins text-center" style="background-color: green; margin: 0; color: white;" :style="[increaseScoreBar,{width:highScore + '%'}]">
-         {{highScoreCount}}
+         {{highScore}}
         </div>
       </div>
     </div>
+    <div id="wrapper"><div id="innerDiv">{{timerMessage}}{{seconds}}</div></div>
   </section>
   <section class="row controls">
     <div class="small-12 columns">
@@ -38,14 +39,14 @@
   </section>
   <section class="row controls" v-if="startButtonClick">
     <div class="small-12 columns">
-      <button id="start-game" v-show="startButtonClick" @click="startButtonClick = !startButtonClick, computerTurn(), computerSelection()">START NEW GAME</button>
+      <button id="start-game" v-show="startButtonClick" @click="startButtonClick = !startButtonClick, computerTurn(), computerSelection(), startTimer()">START NEW GAME</button>
     </div>
   </section>
   <section class="row controls" v-else>
     <div class="small-12 columns">
-      <button id="rock"  v-show="!startButtonClick" @click="playerSelection(1), checkTurn(), alertBox()">ROCK</button>
-      <button id="paper" v-show="!startButtonClick" @click="playerSelection(2), checkTurn(), alertBox()">PAPER</button>
-      <button id="scissors" v-show="!startButtonClick" @click="playerSelection(3), checkTurn(), alertBox()">SCISSORS</button>
+      <button id="rock"  v-show="!startButtonClick" @click="playerSelection(1), checkTurn()">ROCK</button>
+      <button id="paper" v-show="!startButtonClick" @click="playerSelection(2), checkTurn()">PAPER</button>
+      <button id="scissors" v-show="!startButtonClick" @click="playerSelection(3), checkTurn()">SCISSORS</button>
       <button id="restart" v-show="!startButtonClick" @click="reset()">RESTART</button>
     </div>
   </section>
@@ -53,7 +54,7 @@
     <div class="small-12 columns">
       <ul>
         <li v-for="message in messages"
-          :class="{'player-turn': message.playerWon, 'computer-turn': message.computerWon, 'tie-turn': message.tieGame}">
+          :class="{'player-win': message.playerWon, 'player-lose': message.playerLose}">
           {{message.text}}
         </li>
       </ul>

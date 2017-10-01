@@ -14,6 +14,7 @@ new Vue({
       //argument variable for computer selection to check between Rock, Paper, or Scissors
       comSelection: 0,
       turnSelection: 0,
+      selection: 0,
       //Holds player score count, displays in the progress bar and increases with each win
 	  playerScore: 0,
       //Holds computer score count, displays in the progress bar and increases with each win
@@ -23,16 +24,18 @@ new Vue({
       startButtonClick: true,
       // Integer that holds the number of player turn wins, displayed as a number in the progress bar
       playerWinCount: 0,
-      // Integer that holds the number of computer turn wins, displayed as a number in the progress bar
-      highScoreCount: 0,
       // Messages array that holds each message that is displayed in the game bar for the outcome of each turn
       messages: [],
       toWin: false,
       toLose: false,
       toTie: false,
       message: '',
-      computerMessage: ''
-
+      countdownTimer: '',
+      computerMessage: '',
+      timerMessage: '',
+      seconds: '',
+      highScoreHolder: 0,
+      timer: 0
   },
 
 
@@ -50,11 +53,30 @@ new Vue({
         return {
         width: this.highScore + '%'
         }
-      },
+      }
 
   },
   
   methods: {
+
+      startTimer: function(){
+          var myVar = this
+          myVar.seconds = 60
+          myVar.timer = setInterval( function() {
+              myVar.seconds--
+              if(myVar.seconds === 0){
+                  clearInterval(myVar.timer)
+                  if (myVar.highScore > myVar.highScoreHolder){
+                      myVar.highScoreHolder = myVar.highScore
+                      alert("Time's up. New High Score!!")
+                  }
+                  else{
+                      alert("Time's up. Try again for a high score!")
+                  }
+                  myVar.reset()
+              }
+          }, 1000);
+      },
 
       // Increases the player score by a factor of 10. This will reflect in the progress bar and increment
       // by 10 for each score
@@ -66,9 +88,8 @@ new Vue({
       // Increases the player score by a factor of 10. This will reflect in the progress bar and increment
       // by 10 for each score
 	  increaseHighScore: function() {
-          if(this.highScoreCount < this.playerWinCount && this.highScore < this.playerScore){
+          if(this.highScore < this.playerScore){
               this.highScore++
-              this.highScoreCount++
           }
           else{
               return
@@ -92,12 +113,13 @@ new Vue({
           this.computerPaper = false
           this.computerScissors = false
           this.playerScore = 0
-          this.highScore = 0
           this.playerWinCount = 0
           this.startButtonClick = true
           this.messages = []
           this.message = ''
           this.computerMessage = ''
+          this.seconds = 0
+          clearInterval(this.timer)
       },
 
 
@@ -178,14 +200,14 @@ new Vue({
                   if (this.computerRock === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          tieGame: true,
+                          playerLose: true,
                           text: "Computer chose Rock | You have tied! | Lose 2 points"
                       })
                   }
                   else if (this.computerPaper === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          computerWon: true,
+                          playerLose: true,
                           text: "Computer chose Paper | Paper beats rock | Lose 2 points!"
                       })
                   }
@@ -210,14 +232,14 @@ new Vue({
                   else if (this.computerPaper === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          tieGame: true,
+                          playerLose: true,
                           text: "Computer chose Paper | You have tied! | Lose 2 points"
                       })
                   }
                   else {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          computerWon: true,
+                          playerLose: true,
                           text: "Computer chose Scissors | Scissors beats paper | Lose 2 points!"
                       })
                   }
@@ -226,7 +248,7 @@ new Vue({
                   if (this.computerRock === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          computerWon: true,
+                          playerLose: true,
                           text: "Computer chose Rock | Rock beats Scissors | Lose 2 points!"
                       })
                   }
@@ -241,7 +263,7 @@ new Vue({
                   else {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          tieGame: true,
+                          playerLose: true,
                           text: "Computer chose Scissors | You have tied! | Lose 2 points"
                       })
                   }
@@ -252,7 +274,7 @@ new Vue({
                   if (this.computerRock === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          tieGame: true,
+                          playerLose: true,
                           text: "Computer chose Rock | You have tied! | Lose 2 points"
                       })
                   }
@@ -260,14 +282,14 @@ new Vue({
                       this.increasePlayerScore()
                       this.increaseHighScore()
                       this.messages.unshift({
-                          computerWon: true,
+                          playerWon: true,
                           text: "Computer chose Paper | Paper beats rock | Player Wins!"
                       })
                   }
                   else {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          playerWon: true,
+                          playerLose: true,
                           text: "Computer chose Scissors | Rock Beats scissors | Lose 2 points!"
                       })
                   }
@@ -276,14 +298,14 @@ new Vue({
                   if (this.computerRock === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          playerWon: true,
+                          playerLose: true,
                           text: "Computer chose Rock | Paper beats Rock | Lose 2 points!"
                       })
                   }
                   else if (this.computerPaper === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          tieGame: true,
+                          playerLose: true,
                           text: "Computer chose Paper | You have tied! | Lose 2 points"
                       })
                   }
@@ -291,7 +313,7 @@ new Vue({
                       this.increasePlayerScore()
                       this.increaseHighScore()
                       this.messages.unshift({
-                          computerWon: true,
+                          playerWon: true,
                           text: "Computer chose Scissors | Scissors beats paper | Player Wins!"
                       })
                   }
@@ -301,21 +323,21 @@ new Vue({
                       this.increasePlayerScore()
                       this.increaseHighScore()
                       this.messages.unshift({
-                          computerWon: true,
+                          playerWon: true,
                           text: "Computer chose Rock | Rock beats Scissors | Player Wins!"
                       })
                   }
                   else if (this.computerPaper === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          playerWon: true,
+                          playerLose: true,
                           text: "Computer chose Paper | Scissors beats Paper | Lose 2 points!"
                       })
                   }
                   else {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          tieGame: true,
+                          playerLose: true,
                           text: "Computer chose Scissors | You have tied! | Lose 2 points"
                       })
                   }
@@ -327,21 +349,21 @@ new Vue({
                       this.increasePlayerScore()
                       this.increaseHighScore()
                       this.messages.unshift({
-                          tieGame: true,
+                          playerWon: true,
                           text: "Computer chose Rock | You have tied! | Player Wins"
                       })
                   }
                   else if (this.computerPaper === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          computerWon: true,
+                          playerLose: true,
                           text: "Computer chose Paper | Paper beats rock | Lose 2 points!"
                       })
                   }
                   else {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          playerWon: true,
+                          playerLose: true,
                           text: "Computer chose Scissors | Rock Beats scissors | Lose 2 points!"
                       })
                   }
@@ -350,7 +372,7 @@ new Vue({
                   if (this.computerRock === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          playerWon: true,
+                          playerLose: true,
                           text: "Computer chose Rock | Paper beats Rock | Lose 2 points!"
                       })
                   }
@@ -358,14 +380,14 @@ new Vue({
                       this.increasePlayerScore()
                       this.increaseHighScore()
                       this.messages.unshift({
-                          tieGame: true,
+                          playerWon: true,
                           text: "Computer chose Paper | You have tied! | Player Wins"
                       })
                   }
                   else {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          computerWon: true,
+                          playerLose: true,
                           text: "Computer chose Scissors | Scissors beats paper | Lose 2 points!"
                       })
                   }
@@ -374,22 +396,22 @@ new Vue({
                   if (this.computerRock === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          computerWon: true,
+                          playerLose: true,
                           text: "Computer chose Rock | Rock beats Scissors | Lose 2 points!"
                       })
                   }
                   else if (this.computerPaper === true) {
                       this.decreasePlayerScore()
                       this.messages.unshift({
-                          playerWon: true,
+                          playerLose: true,
                           text: "Computer chose Paper | Scissors beats Paper | Lose 2 points"
                       })
                   }
                   else {
-                      this.increaseHighScore()
                       this.increasePlayerScore()
+                      this.increaseHighScore()
                       this.messages.unshift({
-                          tieGame: true,
+                          playerWon: true,
                           text: "Computer chose Scissors | You have tied! | Player Wins!"
                       })
                   }
@@ -398,16 +420,6 @@ new Vue({
           this.computerSelection()
           this.computerTurn()
       },
-
-      //Creates an alert when either the computer or player has won the game and resets the game board
-      alertBox: function(){
-        if(this.playerWinCount === 10){
-            alert("You won! Play again?")
-            this.reset()
-        }
-          
-      },
-
   },
   
 });
