@@ -30,8 +30,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="411" column="46" lean-forward="false" selection-start-line="411" selection-start-column="46" selection-end-line="411" selection-end-column="46" />
+            <state relative-caret-position="456">
+              <caret line="169" column="33" lean-forward="false" selection-start-line="169" selection-start-column="33" selection-end-line="169" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -51,7 +51,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>visibl</find>
       <find>playerP</find>
       <find>select</find>
       <find>buttonsS</find>
@@ -81,6 +80,7 @@
       <find>highScore</find>
       <find>line</find>
       <find>playerS</find>
+      <find>beat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -101,7 +101,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -152,15 +152,15 @@
       <updated>1506201261547</updated>
       <workItem from="1506201262663" duration="661000" />
       <workItem from="1506455032622" duration="13299000" />
-      <workItem from="1506555640625" duration="24682000" />
+      <workItem from="1506555640625" duration="24707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38642000" />
+    <option name="totallyTimeSpent" value="38667000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="1" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3611691" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -279,8 +279,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="411" column="46" lean-forward="false" selection-start-line="411" selection-start-column="46" selection-end-line="411" selection-end-column="46" />
+        <state relative-caret-position="456">
+          <caret line="169" column="33" lean-forward="false" selection-start-line="169" selection-start-column="33" selection-end-line="169" selection-end-column="33" />
           <folding />
         </state>
       </provider>

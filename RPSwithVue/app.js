@@ -155,19 +155,19 @@ new Vue({
               this.toWin = true
               this.toLose = false
               this.toTie = false
-              this.message = "Beat the computer!!"
+              this.message = "Win!!"
           }
           else if (turnSelection === 2){
               this.toWin = false
               this.toLose = true
               this.toTie = false
-              this.message = "Lose against the computer!!"
+              this.message = "Lose!!"
           }
           else{
               this.toWin = false
               this.toLose = false
               this.toTie = true
-              this.message = "Tie the computer!!"
+              this.message = "Tie!!"
           }
       },
 
