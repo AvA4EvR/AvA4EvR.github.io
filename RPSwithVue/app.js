@@ -13,7 +13,9 @@ new Vue({
       playerSelect: 0,
       //argument variable for computer selection to check between Rock, Paper, or Scissors
       comSelection: 0,
+      //Value that gets changed on if it is a win, lose, or tie turn
       turnSelection: 0,
+      // global variable for selection used to know which computer selections were used
       selection: 0,
       //Holds player score count, displays in the progress bar and increases with each win
 	  playerScore: 0,
@@ -26,15 +28,21 @@ new Vue({
       playerWinCount: 0,
       // Messages array that holds each message that is displayed in the game bar for the outcome of each turn
       messages: [],
+      //These 3 are toggled based on which turn it is and what the goal of the turn is
       toWin: false,
       toLose: false,
       toTie: false,
+      // message value to notify the player for win, lose, or tie turns
       message: '',
-      countdownTimer: '',
+      // Notify's the player on what the computer has seleted
       computerMessage: '',
+      //Message for the timer
       timerMessage: '',
+      //Displays the number of seconds remaining in the round
       seconds: '',
+      //Holds the high score for all the games played
       highScoreHolder: 0,
+      //Holds the time for the interval set
       timer: 0
   },
 
@@ -48,7 +56,7 @@ new Vue({
       }
     },
 
-      //Function that increases the computer progress bar scaled to the number of turn wins
+      //Function that increases the high score progress bar
     increaseScoreBar: function(){
         return {
         width: this.highScore + '%'
@@ -59,6 +67,7 @@ new Vue({
   
   methods: {
 
+      //Timer function that starts the timer and counts down from 60 seconds
       startTimer: function(){
           var myVar = this
           myVar.seconds = 60
@@ -78,15 +87,15 @@ new Vue({
           }, 1000);
       },
 
-      // Increases the player score by a factor of 10. This will reflect in the progress bar and increment
-      // by 10 for each score
+      // Increases the player score by a factor of 1. This will reflect in the progress bar and increment
+      // by 1 for each score
       increasePlayerScore: function(){
         this.playerScore++
         this.playerWinCount++
       },
 
-      // Increases the player score by a factor of 10. This will reflect in the progress bar and increment
-      // by 10 for each score
+      // Increases the player high score by a factor of 1. This will reflect in the progress bar and increment
+      // by 1 for each score
 	  increaseHighScore: function() {
           if(this.highScore < this.playerScore){
               this.highScore++
@@ -96,6 +105,7 @@ new Vue({
           }
 	  },
 
+      // Decreases the player score by a factor of 2 for each incorrect answer
       decreasePlayerScore: function(){
         this.playerScore -= 2
         this.playerWinCount -= 2
