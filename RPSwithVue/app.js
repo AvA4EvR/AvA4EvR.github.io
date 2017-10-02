@@ -36,8 +36,6 @@ new Vue({
       message: '',
       // Notify's the player on what the computer has seleted
       computerMessage: '',
-      //Message for the timer
-      timerMessage: '',
       //Displays the number of seconds remaining in the round
       seconds: '',
       //Holds the high score for all the games played
